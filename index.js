@@ -81,7 +81,7 @@ var test =
 alert(!test ? "cette variable n'existe pas":42);
 
 var family = "Ce chiffre fait partie de la famille des ";
-var randomNumber = Math.floor(Math.random() * (9-1)+1).toString();
+var randomNumber = Math.floor(Math.random() * (41-1)+1).toString();
 
 if(randomNumber.length !=1){
    switch(parseInt(randomNumber[0])){
