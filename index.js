@@ -191,3 +191,206 @@ every day*/
 // }
 
 // document.querySelector('body').appendChild(select);
+
+
+// les fonctions
+
+
+//1
+
+/* 
+* @param {string} value
+* @return {string | boolean} 
+* 
+*/
+// function myPutStr(value){
+
+//     return value.match(/^\d+$/) 
+//         ? parseInt(value) === 42 
+//         ? "42 yeahh" 
+//         : "Et pourquoi pas 42 ?"
+//         : false;
+      
+// }
+
+// myPutStr("15");
+
+//2
+
+/* returns the area of an entered surface
+* @param {object} surface
+* @return {string} surface m2 || error msg
+*/
+// function computeSurfaceM2(surface){
+
+//     var surfaceM2;
+//     switch(surface.type){
+//        case "carre":
+//        case "rectangle": 
+//           surfaceM2 = surface.width * surface.height;
+//           break;
+//        case "triangle":
+//           surfaceM2 = surface.base * surface.height / 2;
+//           break;
+//        case "losange": 
+//           surfaceM2 = surface.firstDiagonal * surface.secondDiagonal / 2;
+//           break;
+//        case "parallelogram":
+//           surfaceM2 = surface.base * surface.height;
+//           break;
+//        case "disk": 
+//           surfaceM2 = surface.radius**2 * Math.PI();
+//           break;
+//        default:
+//           return "Ce n'est pas une forme prise en compte";
+//           break;
+//     }
+
+//     return "Surface en m2 : " + surfaceM2;
+// }
+
+// console.log(
+// computeSurfaceM2({type:'rectangle', width:10,height:15}));
+
+
+//3
+    /*  creates a button with click listener
+    * and inserts it to page
+    */
+// function createMyButton(){
+// var myButton = document.createElement("button");
+// myButton.addEventListener("click",detectMyAgeByNight); 
+// document.querySelector('body').appendChild(myButton);
+// }
+
+    /*  tells if can enter into nightclub
+    */
+// function detectMyAgeByNight(){
+//    var age = prompt("Quel âge avez-vous ?");
+//    alert(
+//    age.match(/^\d+$/) ?
+//    age >= 42 ? "Vous pouvez entrer, boss.."
+//    :age < 18 ? "Vous ne pouvez pas entrer, vous avez " + age + " ans"
+//    :"Vous pouvez enter"
+//    :"Veuillez entrer un nombre"
+//    );
+// }
+
+// createMyButton();
+
+//4
+   /* generates a matrix and displays it on page
+   *@param {int[int[]]}
+   */
+// function matrixGenerator(array){
+//     var matrix = document.createElement("table");
+    
+//     for(var i=0;i<array.length;i++){
+//         var tr = document.createElement("tr");
+//         for(var j=0;j<array[i].length;j++){
+//           var td = document.createElement("td");
+//           td.insertAdjacentHTML("beforeend","<span>"+array[i][j]+"</span>");
+//           tr.appendChild(td);
+//         }
+//         matrix.appendChild(tr);
+//     }
+    
+//     document.querySelector("body").appendChild(matrix);
+// }
+
+// matrixGenerator(
+// [[1, 1, 1, 1, 1], [0, 1, 0, 1, 0], [1, 0, 0, 1, 1]]
+// );
+
+//5
+
+/* displays the clock on page
+* @param {date} the current datetime
+*   
+*/
+// function displayClock(){
+//     var htmlClock;
+//     if(!document.querySelector("clock")){
+//         htmlClock = document.createElement("span");
+//         var body = document.querySelector("body");
+//         body.appendChild(htmlClock);
+//     }
+
+//     var currentDate = new Date();
+//     htmlClock.innerText = "Il est actuellement : " 
+//     + needLeadingZero(currentDate.getHours()) 
+//     + "h : " 
+//     + needLeadingZero(currentDate.getMinutes())
+//     + " et " + needLeadingZero(currentDate.getSeconds()) + " secondes";
+    
+        /* adds a zero if needed
+        *@param {int} 
+        *@return {string} 
+        */
+//     function needLeadingZero(number){
+//         return number.toString().length == 2 ? number
+//         : "0"+number.toString();  
+//     }
+// }
+
+// window.setInterval(displayClock, 1000);
+
+//6
+var fiArray = [1,2,3,7];
+var newArray = [];
+
+/* Loops through array and calls fibonacci()
+*/
+function loopArray(){
+  for(var i=0; i<fiArray.length;i++){
+      fiArray[i] = fibonacci(fiArray[i]);
+  }
+  console.log(fiArray);
+}
+
+/* applies fibonnaci suite to a number 
+*@param {number} number to use for fibonacci suite
+*@return {number} number after fibonacci suite 
+*/
+function fibonacci(number){
+  if(number < 2)
+    return number;
+  
+  return fibonacci(number - 1) + fibonacci(number - 2);  
+}
+
+
+/* Sums array numbers 
+*@param {int[]} intial array
+*@return {number} sum of numbers 
+*/
+function addNumbers(){
+    var sum =0;
+    for(var i=0;i<fiArray.length;i++){
+        sum += fiArray[i];
+    }
+
+    return sum;
+}
+
+/* Sorts the array 
+*@param {int[]} initial array
+*@return {int[]} reverse sorted array
+*/
+function reversedSort(){
+    var changed;
+    do{
+        changed = false;
+        for(var i=0; i < fiArray.length-1; i++) {
+            if(fiArray[i] < fiArray[i+1]) {
+                var tmp = fiArray[i];
+                fiArray[i] = fiArray[i+1];
+                fiArray[i+1] = tmp;
+                changed = true;
+            }
+        }
+    } while(changed);
+
+}
+
+loopArray();
